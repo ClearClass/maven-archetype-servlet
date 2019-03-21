@@ -7,6 +7,22 @@ Maven-проект архетипа для веб-приложения на ос
 - настройка плагина компилятора для работы с Java 1.8;
 - использование JUnit4 для реализации тестовых классов.
 
+### Версии
+
+* Версия 1.0 - базовая версия.
+* Версия 1.1 - добавлена jsp-страница с тегами JSTL и ссылка на JNDI-источник данных, определяемый в файле `$CATALINA_HOME/conf/context.xml`:
+
+```xml
+<Context crossContext="true">
+...
+   <Resource name="jdbc/postgres" auth="Container"
+          type="javax.sql.DataSource" driverClassName="org.postgresql.Driver"
+          url="jdbc:postgresql://127.0.0.1:5432/db1" username="postgres"
+          password="post" maxActive="20" maxIdle="10" maxWait="-1"/>
+
+</Context>
+```
+
 ## Установка
 ```sh
 $ mvn clean install
@@ -14,7 +30,7 @@ $ mvn clean install
 Для проверки корректности установки можем сгенерировать пробный проект:
   
 ```sh
-$ mvn archetype:generate -B -DarchetypeGroupId=lib.clearclass.maven.archetypes -DarchetypeArtifactId=maven-archetype-servlet -DarchetypeVersion=1.0 -DgroupId=com.company -DartifactId=myproject -Dversion=1.0-SNAPSHOT -Dpackage=mypack
+$ mvn archetype:generate -B -DarchetypeGroupId=lib.clearclass.maven.archetypes -DarchetypeArtifactId=maven-archetype-servlet -DarchetypeVersion=1.1 -DgroupId=com.company -DartifactId=myproject -Dversion=1.0-SNAPSHOT -Dpackage=mypack
 ```
 Далее выполним следующие настройки. В `%CATALINA_HOME%\conf\tomcat-users.xml` необходимо добавить роль *manager-script* и пользователя с этой ролью:
 
@@ -47,9 +63,9 @@ http://localhost:8080/contextPath/servletPath
 
 ## Использование с Eclipse  
 
-1. Создать/обновить файл `~/.m2/archetype-catalog.xml`. Для этого из рабочего каталога, в котором находится проект архетипа, выполнить команду:
+1. Создать/обновить файл `~/.m2/archetype-catalog.xml`. Для этого перейти в каталог `~/.m2` и выполнить из него команду:
 ```sh
-$ mvn archetype:update-local-catalog
+$ mvn archetype:crawl -Dcatalog=archetype-catalog.xml
 ```
 
 2. Добавить в Eclipse путь к каталогу `~/.m2` (где должен находится `archetype-catalog.xml`), выполнив настройку:  

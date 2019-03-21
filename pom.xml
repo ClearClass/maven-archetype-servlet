@@ -4,6 +4,10 @@
 
    <groupId>lib.clearclass.maven.archetypes</groupId>
    <artifactId>maven-archetype-servlet</artifactId>
-   <version>1.0</version>
+   <version>1.1</version>
    <packaging>jar</packaging>
+
+   <description>
+      Архетип веб-приложения. Включает jsp-страницу и сервлет-контроллер со ссылкой на JNDI-источник данных.
+   </description>
 </project>
