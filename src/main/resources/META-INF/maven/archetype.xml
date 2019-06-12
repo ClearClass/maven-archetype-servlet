@@ -2,15 +2,17 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
            xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype/1.0.0
                                http://maven.apache.org/xsd/archetype-1.0.0.xsd">
-   <id>Архетип веб-приложения. Включает jsp-страницу и сервлет-контроллер со ссылкой на JNDI-источник данных.</id>
+   <id>Архетип веб-приложения. Включает сервлет-контроллер (с загрузкой Spring-контекста, содержащего встраиваемую СУБД H2 и jdbcTemplate-бин), и jsp-страницу с тегами jstl.</id>
    <sources>
       <source>src/main/java/MainServlet.java</source>
    </sources>
    <testSources>
-      <source>src/test/java/UnitTest.java</source>
+      <source>src/test/java/MainTest.java</source>
    </testSources>
    <resources>
       <resource>src/main/webapp/WEB-INF/web.xml</resource>
+      <resource>src/main/webapp/WEB-INF/applicationContext.xml</resource>
       <resource>src/main/webapp/WEB-INF/jsp/foo.jsp</resource>
+      <resource>src/main/resources/init.sql</resource>
    </resources>
 </archetype>
