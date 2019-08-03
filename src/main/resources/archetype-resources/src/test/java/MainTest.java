@@ -6,10 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.mock.jndi.SimpleNamingContextBuilder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -18,6 +26,21 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class MainTest {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	@Autowired @Qualifier("h2")
+	DataSource h2;
+	
+	@BeforeClass
+	public static void contextSetup() throws NamingException {
+		SimpleNamingContextBuilder builder = SimpleNamingContextBuilder.emptyActivatedContextBuilder();
+		DriverManagerDataSource dataSource = new DriverManagerDataSource("jdbc:postgresql://127.0.0.1:5432/db1", "postgres", "post");
+		builder.bind("java:comp/env/jdbc/postgres", dataSource);
+		builder.activate();
+	}
+	
+	@Before
+	public void init(){
+		jdbcTemplate.setDataSource(h2);
+	}
 
 	@Test
 	public void test1() {

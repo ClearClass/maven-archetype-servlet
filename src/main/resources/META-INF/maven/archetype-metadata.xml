@@ -3,7 +3,7 @@
         xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
         xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        name="Архетип веб-приложения. Включает сервлет-контроллер (с загрузкой Spring-контекста, содержащего встраиваемую СУБД H2 и jdbcTemplate-бин), и jsp-страницу с тегами jstl.">
+        name="Архетип веб-приложения. Включает сервлет-контроллер (с загрузкой Spring-контекста, содержащего встраиваемую СУБД H2, jdbcTemplate-бин и jndi-источник данных), и jsp-страницу с тегами jstl.">
    <fileSets>
       <fileSet filtered="true" packaged="true" encoding="UTF-8">
          <directory>src/main/java</directory>

@@ -4,10 +4,10 @@
 
    <groupId>lib.clearclass.maven.archetypes</groupId>
    <artifactId>maven-archetype-servlet</artifactId>
-   <version>1.2</version>
+   <version>1.21</version>
    <packaging>jar</packaging>
 
    <description>
-      Архетип веб-приложения. Включает сервлет-контроллер (с загрузкой Spring-контекста, содержащего встраиваемую СУБД H2 и jdbcTemplate-бин), и jsp-страницу с тегами jstl. 
+      Архетип веб-приложения. Включает сервлет-контроллер (с загрузкой Spring-контекста, содержащего встраиваемую СУБД H2, jdbcTemplate-бин и jndi-источник данных), и jsp-страницу с тегами jstl. 
    </description>
 </project>
