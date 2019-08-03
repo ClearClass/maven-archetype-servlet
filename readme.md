@@ -27,6 +27,8 @@ Maven-проект архетипа для веб-приложения на ос
 
 * Версия 1.21 - получение JNDI-ресурса перенесено в Spring-контекст, в виде объекта `JndiObjectFactoryBean`.
 
+* Версия 1.22 - в Spring-контекст добавлено пространство имен `jee`; `JndiObjectFactoryBean` заменен на `<jee:jndi-lookup />`.
+
 ## Установка
 ```sh
 $ mvn clean install

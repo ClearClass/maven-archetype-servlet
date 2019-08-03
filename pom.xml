@@ -4,7 +4,7 @@
 
    <groupId>lib.clearclass.maven.archetypes</groupId>
    <artifactId>maven-archetype-servlet</artifactId>
-   <version>1.21</version>
+   <version>1.22</version>
    <packaging>jar</packaging>
 
    <description>
